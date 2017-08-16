@@ -1,34 +1,36 @@
 <?xml version="1.0" ?> 
 <project name="AntBuildProject" default="war">
 
+<property name="antBuildProject.dir"     value="AntBuildProject"/>
+
 	<path id="compile.classpath">
-		<fileset dir="WebContent/WEB-INF/lib">
+		<fileset dir="${antBuildProject.dir}/WebContent/WEB-INF/lib">
 			<include name="*.jar"/>
 		</fileset>
 	</path>
 	
 	<target name="init">
-		<mkdir dir="build/classes"/>
-		<mkdir dir="dist" />
+		<mkdir dir="${antBuildProject.dir}/build/classes"/>
+		<mkdir dir="${antBuildProject.dir}/dist" />
 	</target>
 	
 	<target name="compile" depends="init" >
-		<javac destdir="build/classes" debug="true" srcdir="src">
+		<javac destdir="${antBuildProject.dir}/build/classes" debug="true" srcdir="${antBuildProject.dir}/src">
 			<classpath refid="compile.classpath"/>
 		</javac>
 	</target>
 	
 	<target name="war" depends="compile">
-		<war destfile="dist/AntBuildProject.war" webxml="WebContent/WEB-INF/web.xml">
-			<fileset dir="WebContent"/>
-			<lib dir="WebContent/WEB-INF/lib"/>
-			<classes dir="build/classes"/>
+		<war destfile="${antBuildProject.dir}.war" webxml="${antBuildProject.dir}/WebContent/WEB-INF/web.xml">
+			<fileset dir="${antBuildProject.dir}/WebContent"/>
+			<lib dir="${antBuildProject.dir}/WebContent/WEB-INF/lib"/>
+			<classes dir="${antBuildProject.dir}/build/classes"/>
 		</war>
 	</target>
 	
 	<target name="clean">
-		<delete dir="dist" />
-		<delete dir="build" />
+		<delete dir="${antBuildProject.dir}/dist" />
+		<delete dir="${antBuildProject.dir}/build" />
 	</target>
 	
 </project>
