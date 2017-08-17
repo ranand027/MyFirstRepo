@@ -6,9 +6,18 @@ public class User {
 	private String password;
 	private String gender;
 	private String country;
+	private String dateOfBirth;
 	private String aboutYou;
 	private String[] community;
 	private Boolean mailingList;
+	
+	
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
 	
 	public String getName() {
 		return name;

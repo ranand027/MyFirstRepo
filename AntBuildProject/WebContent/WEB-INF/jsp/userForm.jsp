@@ -20,6 +20,10 @@
 			<td><form:password path="password" /></td>
 		</tr>
 		<tr>
+			<td>Bith Date :</td>
+			<td><form:input path="dateOfBirth"/> </td>
+		</tr>
+		<tr>
 			<td>Gender :</td>
 			<td><form:radiobutton path="gender" value="M" label="M" /> 
 				<form:radiobutton path="gender" value="F" label="F" /></td>
